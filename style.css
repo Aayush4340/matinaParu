@@ -1,0 +1,719 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: #FFC0CB;
+}
+
+.book{
+    position: relative;
+    width: 350px;
+    height: 500px;
+    transition: .5s;
+}
+
+.paper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 1500px;
+}
+
+.front,.back{
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transition: .5s;
+}
+.front{
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid #FFC0CB;
+}
+.back{
+    z-index: 0;
+}
+.front-content,
+.back-content{
+    width: 100%;
+    height: 100%;
+}
+.back-content{
+    transform: rotateY(180deg);
+}
+
+#p1{
+    z-index: 3;
+}
+#p2{
+    z-index: 2;
+}
+#p3{
+    z-index: 1;
+}
+
+
+
+/* <--------Song in page b1--------> */
+#b1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px 0;
+    font-family: 'Bellota';
+}
+.lyrics{
+    height: 250px;
+    width: 250px;
+    border: 2px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+}
+#pause{
+    display: none;
+}
+/* <--------BACK PAGE 2 and 3--------> */
+#b2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#b2 img{
+    width: 200px;
+    height: 300px;
+}
+.msgs{
+    font-size: 12px;
+    position: absolute;
+    font-family: 'Bellota';
+    /* border: 1px solid black; */
+    /* padding: 5px; */
+}
+/* <--------Messages--------> */
+#msg0{
+    margin: 20px;
+    text-align: center;
+    font-family: 'Bellota';
+
+}
+#msg1{
+    top: 15%;
+    left: 5%;
+    transform: rotate(-23deg);
+    transition: .3s;
+}
+#msg1::after{
+    content: "Your presence and actions haven't gone unnoticed. You hold a meaningful place in my life, and I genuinely acknowledge and appreciate it. I truly value all that you contribute, whether it's something big or small.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg1:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(23deg);
+}
+
+
+#msg2{
+    top: 12%;
+    right: 5%;
+    transform: rotate(23deg);
+    transition: .3s;
+}
+#msg2::after{
+    content: "You Complete Me: It's not just about having you in my life; it's about how your presence adds a unique and vital element. You fill spaces within me that I didn't even realize were empty.";
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg2:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(-23deg);
+}
+
+
+#msg3{
+    top: 26%;
+    left: 15%;
+    transform: rotate(11deg);
+    transition: .3s;
+}
+#msg3::after{
+    content: "Your positivity is a constant source of light in my life. Whether it's your infectious laughter, a thoughtful gesture, or just knowing you're there, you consistently bring warmth and brightness to even the gloomiest days."; 
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg3:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(-11deg);
+}
+
+
+#msg4{
+    top: 35%;
+    left: 50%;
+    transform: rotate(-23deg);
+    transition: .3s;
+}
+#msg4::after{
+    content: "My heart actively seeks and desires you. You're not just a part of my life; you're an essential beat in the rhythm of my heart.";
+    position: absolute;
+    top: -35px;
+    left: -70px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg4:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(23deg);
+    
+}
+
+
+#msg5{
+    top: 35%;
+    left: 30%;
+    transform: rotate(-33deg);
+    transition: .3s;
+}
+#msg5::after{
+    content: "It's more than just love; it's a deep admiration for who you are. My feelings for you go beyond the surface; they extend to a place of deep admiration.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg5:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(33deg);
+}
+
+
+#msg6{
+    top: 50%;
+    right: 5%;
+    transform: rotate(5deg);
+    transition: .3s;
+}
+#msg6::after{
+    content: "There's an element of strong and uncontrollable passion in my feelings for you. It's not a calm, measured love; it's a love that excites, energizes, and sometimes even surprises me.  You've sparked a flame that ignites my emotions in the best possible way.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg6:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(-5deg);
+}
+
+
+#msg7{
+    top: 50%;
+    left: 35%;
+    transform: rotate(-30deg);
+    transition: .3s;
+}
+#msg7::after{
+    content: "Your well-being is genuinely important to me. It's more than a casual concern. Your joys bring me happiness, and your struggles make me want to lend a helping hand. Your presence in my life is something I cherish deeply.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg7:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(30deg);
+}
+
+
+#msg8{
+    top: 45%;
+    left: 25%;
+    transform: rotate(23deg);
+    transition: .3s;
+}
+#msg8::after{
+    content:"I'm yours.  It's a declaration of surrender.  It's an acknowledgment that in the vast expanse of life, my heart has found its home with you, and I willingly devote myself to your love.";
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg8:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(-23deg);
+}
+
+
+#msg9{
+    top: 37%;
+    left: 3%;
+    transform: rotate(-40deg);
+    transition: .3s;
+}
+#msg9::after{
+    content: "In the metaphorical stormy weather of life, you are the constant ray of sunshine. Your positivity, love, and brightness dispel the clouds, making everything seem a little bit lighter and more beautiful";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg9:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(40deg);
+}
+
+
+#msg10{
+    top: 55%;
+    left: 5%;
+    transform: rotate(25deg);
+    transition: .3s;
+    /* display: none; */
+}
+#msg10::after{
+    content: "Your presence has become an integral part of my sense of self. In your absence, there's a void that can't be easily filled.";
+    position: absolute;
+    top: -25px;
+    left: -30px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg10:hover::after{
+    transform: scale(1.5) rotate(-25deg);
+    visibility: visible;
+}
+
+
+#msg11{
+    top: 60%;
+    left: 45%;
+    transform: rotate(-15deg);
+    transition: .3s;
+}
+#msg11::after{
+    content: "It was a gradual descent but my emotions for you have taken me by surprise. Now, I'm deeply in love with you and this love is exciting and completely overwhelming.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg11:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(15deg);
+}
+
+
+#msg12{
+    top: 15%;
+    left: 47%;
+    transform: rotate(-16deg);
+    transition: .3s;
+}
+#msg12::after{
+    content: "It's not a weakness; it's a recognition of interdependence. Your support, understanding, and presence are fundamental to my well-being. On this journey of life, we'are together, supporting and depending on each other.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg12:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(16deg);
+}
+
+
+
+#msg13{
+    top: 67%;
+    left: 5%;
+    transform: rotate(-30deg);
+    transition: .3s;
+}
+#msg13::after{
+    content: "This care goes deeper than just being polite. I'm emotionally invested in your happiness and well-being. What brings you joy brings me joy, and your sorrows become my worries.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg13:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(30deg);
+}
+
+
+#msg14{
+    top: 65%;
+    right: 8%;
+    transform: rotate(25deg);
+    transition: .3s;
+}
+#msg14::after{
+    content: "You are not taken for granted. You are treasured and held dear. The moments we share, the memories we create, and the person you are – all of it is deeply cherished and valued. You are not just a part of my life; you are a precious aspect of it.";
+    position: absolute;
+    top: -40px;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg14:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(-25deg);
+}
+
+
+#msg15{
+    top: 70%;
+    left: 40%;
+    transform: rotate(15deg);
+    transition: .3s;
+}
+#msg15::after{
+    content: "You are an angel, a gift from heaven, sent to illuminate the darkest corners of my life with your radiant presence. Truly, you are not just a person but a celestial blessing.";
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg15:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(-15deg);
+}
+
+
+#msg16{
+    top: 80%;
+    left: 40%;
+    transform: rotate(-15deg);
+    transition: .3s;
+}
+#msg16::after{
+    content:"Imagining the future, I see you as my lifelong companion. Through the ups and downs, and the passage of time, I desire to navigate life's challenges hand-in-hand and create lasting memories with you";
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg16:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(15deg);
+}
+
+
+#msg17{
+    top: 87%;
+    left: 5%;
+    transform: rotate(15deg);
+    transition: .3s;
+}
+#msg17::after{
+    content: "I used to believe that being with you was only possible in my dreams. Yet, here we are, living in reality. I feel incredibly grateful and fortunate to have you in my life";
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg17:hover::after{
+    visibility: visible;
+    transform: scale(1.5) rotate(-15deg);
+}
+
+
+#msg18{
+    top: 77%;
+    left: 10%;
+    transition: .3s;
+}
+#msg18::after{
+    content: "Your presence brings a unique and unparalleled sense of joy and contentment into my life. Among the chaos of life, you are the calm and joy that I seek.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg18:hover::after{
+    visibility: visible;
+    transform: scale(1.5);
+}
+
+
+#msg19{
+    top: 22%;
+    right: 5%;
+    transition: .3s;
+}
+#msg19::after{
+    content: "Our compatibility is seamless, like perfectly fitting puzzle pieces. Even in our differences, we find strength, creating a beautiful and harmonious picture of unity.";
+     position: absolute;
+    top: -10px;
+    left: -40px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg19:hover::after{
+    visibility: visible;
+    transform: scale(1.5);
+}
+
+
+#msg20{
+    top: 88%;
+    left: 61%;
+    transition: .3s;
+}
+#msg20::after{
+    content:"Your place in my heart is irreplaceable. It represents a deep emotional connection that I share exclusively with you. My emotions and love are genuinely and wholly yours.";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    visibility: hidden;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+    transform: scale(0);
+    transform-origin: top;
+    background-color: #fdffc0;
+    border: 1px solid black;
+    padding: 7px;
+}
+#msg20:hover::after{
+    visibility: visible;
+    transform: scale(1.5);
+}
+
+
+
+/* <--------f1--------> */
+.initial{
+    position: absolute;
+    top: 170px;
+    font-size: 48px;
+    font-weight: bolder;
+    font-family: 'Bellota';
+}
+.N{
+    left: 70px;
+}
+.K{
+    right: 70px;
+}
+/* <--------letter in page f2 and f3--------> */
+
+#f1 img{
+    height: 100%;
+    width: 100%;
+}
+
+#f2,#f3{
+    padding: 50px 20px;
+    font-family: 'Bellota';
+    font-size: 14px;
+    visibility:hidden;
+}
+
+
+/* Buttons */
+.btn{
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10%;
+    transition: .5s;
+    /* z-index: -1; */
+}
+.btn:focus{
+    outline: none;
+}
+.btn i{
+    font-size: 50px;
+    padding: 6px;
+}
+.btn:hover{
+    background-color: rgba(239, 236, 236, 0.687)
+}
+
+
+
+/* Flipped effect */
+.flipped .front,
+.flipped .back{
+    transform: rotateY(-180deg);
+}
